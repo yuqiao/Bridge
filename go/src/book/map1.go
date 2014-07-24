@@ -1,9 +1,9 @@
 package main
 
 import (
+	"book/chapter2"
 	"errors"
 	"fmt"
-	"mymath"
 )
 
 type PersonInfo struct {
@@ -38,5 +38,5 @@ func main() {
 		fmt.Println("Add error:", err)
 	}
 
-	fmt.Println("plus:", mymath.Plus(1, 2, 3, 4))
+	fmt.Println("plus:", chapter2.Plus(1, 2, 3, 4))
 }
