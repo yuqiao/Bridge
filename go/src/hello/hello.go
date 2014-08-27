@@ -2,14 +2,22 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"log"
+	"net/url"
 	"strings"
 )
 
 func main() {
-	who := "World!"
-	if len(os.Args) > 1 {
-		who = strings.Join(os.Args[1:], " ")
+	urlStr := "mq://wangxin:sddf@10.232.136.85:61613/topic/login?id=stomptest&name=test"
+	r, e := url.Parse(urlStr)
+	if e != nil {
+		log.Fatalln("failed to parse the url:" + urlStr)
 	}
-	fmt.Println("Hello," + who)
+	h := strings.Split(r.Host, ":")
+	fmt.Println("host:", h[0])
+	fmt.Println("path:", r.Path)
+	fmt.Println("query:", r.Query().Get("ss"))
+	fmt.Println("user:", r.User.Username())
+	pwd, _ := r.User.Password()
+	fmt.Println("pwd:", pwd)
 }
