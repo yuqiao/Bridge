@@ -62,7 +62,7 @@ func main() {
 	fmt.Println(stompid + " stomp connect complete ...")
 	fmt.Println(stompid+" connectd headers ", conn.ConnectResponse.Headers)
 
-	d := "/topic/wqupdate"
+	d := "/topic/logon"
 	i := stompngo.Uuid()
 
 	r := Subscribe(conn, d, i, "auto")
