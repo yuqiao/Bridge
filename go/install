@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 if [ ! -f install ]; then
 echo 'install must be run within its container folder' 1>&2
@@ -7,11 +7,14 @@ fi
 
 CURDIR=`pwd`
 OLDGOPATH="$GOPATH"
-export GOPATH="$CURDIR"
+export GOPATH="$CURDIR:$GOPATH"
+echo $GOPATH
 
 gofmt -w src
 
-go install mplayer
+echo "install $1"
+
+go install $1
 
 export GOPATH="$OLDGOPATH"
 

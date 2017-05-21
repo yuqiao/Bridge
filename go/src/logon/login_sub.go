@@ -52,7 +52,7 @@ func main() {
 	}
 
 	fmt.Println(stompid + " dail complete .")
-	ch := ConnectHeaders()
+	ch := ConnectHeaders(user, passwd, host)
 	conn, e := stompngo.Connect(n, ch)
 
 	if e != nil {
